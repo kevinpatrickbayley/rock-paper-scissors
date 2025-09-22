@@ -30,20 +30,28 @@ function playRound(humanChoice, computerChoice){
         console.log("TIE! TWO ROCKS CLASH!");
     }else if(normalizedHumanChoice === "rock" && computerChoice === "paper"){
         console.log("YOU LOSE! YOUR ROCK IS COVERED BY PAPER!");
+        computerScore++;
     }else if(normalizedHumanChoice === "rock" && computerChoice === "scissors"){
         console.log("YOU WIN! YOUR ROCK SMASHES SCISSORS!");
+        humanScore++;
     }else if(normalizedHumanChoice === "paper" && computerChoice === "rock"){
         console.log("YOU WIN! YOUR PAPER COVERS ROCK!");
+        humanScore++;
     }else if(normalizedHumanChoice === "paper" && computerChoice === "paper"){
         console.log("TIE! TWO PAPERS FOLD!");
     }else if(normalizedHumanChoice === "paper" && computerChoice === "scissors"){
         console.log("YOU LOSE! YOUR PAPER IS SLICED BY SCISSORS!");
+        computerScore++;
     }else if(normalizedHumanChoice === "scissors" && computerChoice === "rock"){
         console.log("YOU LOSE! YOUR SCISSORS ARE SMASHED BY ROCK!");
+        computerScore++;
     }else if(normalizedHumanChoice === "scissors" && computerChoice === "paper"){
         console.log("YOU WIN! YOUR SCISSORS SLICE PAPER!");
+        humanScore++;
     }else if(normalizedHumanChoice === "scissors" && computerChoice === "scissors"){
         console.log("TIE! TWO SCISSOR LOCK BLADES!");
     }
 }
+
+playRound(humanSelection, computerSelection);
 
