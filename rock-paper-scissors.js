@@ -2,11 +2,11 @@
 function getComputerChoice(){
    let compChoice = Math.floor(Math.random() * 3);
    if (compChoice === 0){
-    return "Rock";
+    return "rock";
    }else if (compChoice === 1){
-    return "Paper";
+    return "paper";
    }else {
-    return "Scissors";
+    return "scissors";
    }
 }
 
@@ -18,3 +18,32 @@ function getHumanChoice (){
 //Declare plyers score variables
 let humanScore = 0;
 let computerScore = 0;
+
+//Declare constants to hold selections
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+//Logic to play a single round
+function playRound(humanChoice, computerChoice){
+    const normalizedHumanChoice = humanChoice.toLowerCase();
+    if (normalizedHumanChoice === "rock" && computerChoice === "rock"){
+        console.log("TIE! TWO ROCKS CLASH!");
+    }else if(normalizedHumanChoice === "rock" && computerChoice === "paper"){
+        console.log("YOU LOSE! YOUR ROCK IS COVERED BY PAPER!");
+    }else if(normalizedHumanChoice === "rock" && computerChoice === "scissors"){
+        console.log("YOU WIN! YOUR ROCK SMASHES SCISSORS!");
+    }else if(normalizedHumanChoice === "paper" && computerChoice === "rock"){
+        console.log("YOU WIN! YOUR PAPER COVERS ROCK!");
+    }else if(normalizedHumanChoice === "paper" && computerChoice === "paper"){
+        console.log("TIE! TWO PAPERS FOLD!");
+    }else if(normalizedHumanChoice === "paper" && computerChoice === "scissors"){
+        console.log("YOU LOSE! YOUR PAPER IS SLICED BY SCISSORS!");
+    }else if(normalizedHumanChoice === "scissors" && computerChoice === "rock"){
+        console.log("YOU LOSE! YOUR SCISSORS ARE SMASHED BY ROCK!");
+    }else if(normalizedHumanChoice === "scissors" && computerChoice === "paper"){
+        console.log("YOU WIN! YOUR SCISSORS SLICE PAPER!");
+    }else if(normalizedHumanChoice === "scissors" && computerChoice === "scissors"){
+        console.log("TIE! TWO SCISSOR LOCK BLADES!");
+    }
+}
+
