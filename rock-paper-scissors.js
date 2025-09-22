@@ -19,9 +19,7 @@ function getHumanChoice (){
 let humanScore = 0;
 let computerScore = 0;
 
-//Declare constants to hold selections
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+
 
 //Logic to play a single round
 function playRound(humanChoice, computerChoice){
@@ -53,5 +51,26 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-playRound(humanSelection, computerSelection);
+//Logic to play the game, 5 rounds total
+function playGame(){
+    for (let i = 0; i < 5; i++){
+        //Declare constants to hold selections
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        
+        playRound(humanSelection, computerSelection);
+
+        console.log(`The score is You ${humanScore} - Computer ${computerScore}`);
+    }
+
+    if (humanScore > computerScore){
+        console.log("Congrats! You Won!!");
+    }else if (computerScore > humanScore){
+        console.log("Sorry!! You Lost!");
+    }else{
+        console.log("WOW! A Tie!!");
+    }
+}
+
+playGame();
 
