@@ -15,4 +15,6 @@ function getHumanChoice (){
     return prompt("ROCK! PAPER! SCISSORS! MAKE YOUR CHOICE!");
 }
 
-
+//Declare plyers score variables
+let humanScore = 0;
+let computerScore = 0;
