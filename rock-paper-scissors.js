@@ -6,8 +6,13 @@ function getComputerChoice(){
    }else if (compChoice === 1){
     return "Paper";
    }else {
-    return "Scissors"
+    return "Scissors";
    }
 }
 
 //logic to get human choice
+function getHumanChoice (){
+    return prompt("ROCK! PAPER! SCISSORS! MAKE YOUR CHOICE!");
+}
+
+
