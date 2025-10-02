@@ -11,7 +11,7 @@ function getComputerChoice(){
 }
 
 //logic to get human choice
-function getHumanChoice (){
+function getHumanChoice(){
     return prompt("ROCK! PAPER! SCISSORS! MAKE YOUR CHOICE!");
 }
 
@@ -51,6 +51,19 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
+//get refs to 3 play buttons
+const rockButton = document.getElementById("rockButton");
+const paperButton = document.getElementById("paperButton");
+const scissorsButton = document.getElementById("scissorsButton");
+
+//on click, call playRound with human choice based on button
+rockButton.addEventListener('click', () => playRound("rock",getComputerChoice()));
+paperButton.addEventListener('click', () => playRound("paper",getComputerChoice()));
+scissorsButton.addEventListener('click', () => playRound("scissors",getComputerChoice()));
+
+
+
+/*
 //Logic to play the game, 5 rounds total
 function playGame(){
     for (let i = 0; i < 5; i++){
@@ -73,4 +86,4 @@ function playGame(){
 }
 
 playGame();
-
+*/
