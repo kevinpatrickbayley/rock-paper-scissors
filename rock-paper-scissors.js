@@ -14,9 +14,9 @@ function getComputerChoice(){
 let humanScore = 0;
 let computerScore = 0;
 
-//get ref to results text
+//get ref to results and score text
 const resultsText = document.getElementById("resultsText");
-
+const resultsScore = document.getElementById("resultsScore");
 
 //Logic to play a single round
 function playRound(humanChoice, computerChoice){
@@ -46,6 +46,7 @@ function playRound(humanChoice, computerChoice){
     }else if(normalizedHumanChoice === "scissors" && computerChoice === "scissors"){
         resultsText.textContent = ("TIE! TWO SCISSOR LOCK BLADES!");
     }
+    resultsScore.textContent = `You: ${humanScore} Computer: ${computerScore}`;
 }
 
 //get refs to 3 play buttons
