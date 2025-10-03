@@ -10,6 +10,9 @@ function getComputerChoice(){
    }
 }
 
+//variable that tells the game whether it can play or not
+let canPlay = 1;
+
 //Declare plyers score variables
 let humanScore = 0;
 let computerScore = 0;
@@ -47,6 +50,16 @@ function playRound(humanChoice, computerChoice){
         resultsText.textContent = ("TIE! TWO SCISSOR LOCK BLADES!");
     }
     resultsScore.textContent = `You: ${humanScore} Computer: ${computerScore}`;
+    
+    //logic to check if the game is over (best of 5)
+    if (humanScore === 5){
+        resultsScore.textContent = `Congrats! You Won!!`;
+        canPlay = 0;
+    }
+    if (computerScore === 5){
+        resultsScore.textContent = `Congrats! You Won!!`;
+        canPlay = 0;
+    }
 }
 
 //get refs to 3 play buttons
@@ -55,9 +68,15 @@ const paperButton = document.getElementById("paperButton");
 const scissorsButton = document.getElementById("scissorsButton");
 
 //on click, call playRound with human choice based on button
-rockButton.addEventListener('click', () => playRound("rock",getComputerChoice()));
-paperButton.addEventListener('click', () => playRound("paper",getComputerChoice()));
-scissorsButton.addEventListener('click', () => playRound("scissors",getComputerChoice()));
+rockButton.addEventListener('click', () => {
+  if (canPlay) playRound('rock', getComputerChoice());
+});
+paperButton.addEventListener('click', () => {
+    if (canPlay) playRound('paper', getComputerChoice());
+});
+scissorsButton.addEventListener('click', () => {
+    if (canPlay) playRound('scissors', getComputerChoice());
+});
 
 
 
