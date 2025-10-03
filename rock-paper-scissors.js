@@ -11,15 +11,16 @@ function getComputerChoice(){
 }
 
 //variable that tells the game whether it can play or not
-let canPlay = 1;
+let canPlay = true;
 
 //Declare plyers score variables
 let humanScore = 0;
 let computerScore = 0;
 
-//get ref to results and score text
+//get ref to div, results, and score text
 const resultsText = document.getElementById("resultsText");
 const resultsScore = document.getElementById("resultsScore");
+const resultsDiv = document.getElementById("resultsDiv");
 
 //Logic to play a single round
 function playRound(humanChoice, computerChoice){
@@ -55,10 +56,18 @@ function playRound(humanChoice, computerChoice){
     if (humanScore === 5){
         resultsScore.textContent = `Congrats! You Won!!`;
         canPlay = 0;
+        const playAgainButton = document.createElement(`button`);
+        playAgainButton.textContent = `Play Again?`;
+        playAgainButton.setAttribute("id", "resetButton");
+        resultsDiv.appendChild(playAgainButton);
     }
     if (computerScore === 5){
         resultsScore.textContent = `Congrats! You Won!!`;
         canPlay = 0;
+        const playAgainButton = document.createElement(`button`);
+        playAgainButton.textContent = `Play Again?`;
+        playAgainButton.setAttribute("id", "resetButton");
+        resultsDiv.appendChild(playAgainButton);
     }
 }
 
@@ -78,29 +87,15 @@ scissorsButton.addEventListener('click', () => {
     if (canPlay) playRound('scissors', getComputerChoice());
 });
 
+//Play again button that starts the game fresh
+resultsDiv.addEventListener('click', function(event) {
+    if (event.target.matches('#resetButton')){
+    const playAgainButton = document.getElementById("resetButton");
+    resultsText.textContent = `MAKE YOUR CHOICE!!`;
+    resultsScore.textContent = `You : 0  Computer : 0`;
+    humanScore = 0;
+    computerScore = 0;
+    canPlay = true;
+    resultsDiv.removeChild(playAgainButton);}
+});
 
-
-/*
-//Logic to play the game, 5 rounds total
-function playGame(){
-    for (let i = 0; i < 5; i++){
-        //Declare constants to hold selections
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-        
-        playRound(humanSelection, computerSelection);
-
-        resultsText.textContent = (`The score is You ${humanScore} - Computer ${computerScore}`);
-    }
-
-    if (humanScore > computerScore){
-        console.log("Congrats! You Won!!");
-    }else if (computerScore > humanScore){
-        console.log("Sorry!! You Lost!");
-    }else{
-        console.log("WOW! A Tie!!");
-    }
-}
-
-playGame();
-*/
